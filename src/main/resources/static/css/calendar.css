@@ -1,0 +1,293 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 28px 16px;
+    background: #f5f7fb;
+    color: #303849;
+    font-family: sans-serif;
+}
+
+.page {
+    max-width: 1050px;
+    margin: 0 auto;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 28px;
+    color: #344767;
+}
+
+h2 {
+    margin: 0 0 16px;
+    font-size: 21px;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+    border: 1px solid #d9deea;
+    border-radius: 8px;
+    background: white;
+    color: #344767;
+    padding: 10px 16px;
+}
+
+button:hover {
+    background: #edf1f8;
+}
+
+.primary-button {
+    background: #4969c8;
+    color: white;
+    border-color: #4969c8;
+}
+
+.primary-button:hover {
+    background: #3857b3;
+}
+
+.calendar-section,
+.upcoming-section {
+    background: white;
+    border-radius: 12px;
+    padding: 22px;
+    margin-bottom: 22px;
+    box-shadow: 0 2px 10px #26334d0b;
+}
+
+#calendar {
+    min-height: 300px;
+}
+
+.fc .fc-toolbar-title {
+    font-size: 21px;
+}
+
+.fc .fc-button {
+    background: #4969c8;
+    border-color: #4969c8;
+}
+
+.fc .fc-button:hover,
+.fc .fc-button:focus {
+    background: #3857b3;
+    border-color: #3857b3;
+}
+
+.fc .fc-daygrid-day-number {
+    color: #344767;
+    text-decoration: none;
+}
+
+.upcoming-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 4px;
+    border-bottom: 1px solid #edf0f5;
+}
+
+.upcoming-item:last-child {
+    border-bottom: none;
+}
+
+.upcoming-item.selected {
+    background: #eef2ff;
+    border-radius: 8px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.upcoming-info {
+    min-width: 0;
+}
+
+.upcoming-date {
+    color: #64718a;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.upcoming-title {
+    font-weight: bold;
+    overflow-wrap: anywhere;
+}
+
+.upcoming-memo {
+    color: #64718a;
+    font-size: 13px;
+    margin-top: 5px;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.upcoming-item button {
+    flex-shrink: 0;
+}
+
+.empty-message {
+    color: #7a8497;
+    margin: 0;
+    padding: 10px 0;
+}
+
+.bottom-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.bottom-actions button {
+    flex: 1;
+    padding: 13px;
+}
+
+.delete-button {
+    color: #b42318;
+}
+
+dialog {
+    width: min(430px, calc(100% - 28px));
+    max-height: 85vh;
+    overflow-y: auto;
+    border: none;
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 10px 40px #0002;
+}
+
+dialog::backdrop {
+    background: #0006;
+}
+
+#schedule-form {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+#schedule-form label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#schedule-form input,
+#schedule-form select,
+#schedule-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d5dbe6;
+    border-radius: 7px;
+}
+
+#schedule-form textarea {
+    min-height: 75px;
+    resize: vertical;
+}
+
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.form-actions button {
+    flex: 1;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 16px 8px;
+    }
+
+    .page-header {
+        align-items: flex-start;
+    }
+
+    h1 {
+        font-size: 21px;
+    }
+
+    .page-header button {
+        padding: 9px;
+        font-size: 13px;
+        flex-shrink: 0;
+    }
+
+    .calendar-section,
+    .upcoming-section {
+        padding: 10px;
+    }
+
+    .fc .fc-toolbar {
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .fc .fc-toolbar-title {
+        font-size: 17px;
+    }
+
+    .fc .fc-button {
+        padding: 6px 8px;
+        font-size: 12px;
+    }
+
+    .upcoming-item {
+        align-items: flex-start;
+    }
+
+    .bottom-actions {
+        gap: 8px;
+    }
+
+    .bottom-actions button {
+        padding: 10px 5px;
+        font-size: 13px;
+    }
+}
+@media (min-width: 768px) {
+    .page {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 16px 24px;
+    }
+
+    .page-header {
+        margin-bottom: 8px;
+    }
+
+    .calendar-section {
+        margin-top: 0;
+        padding-top: 8px;
+    }
+
+    #calendar {
+        width: 100%;
+    }
+
+    .upcoming-section {
+        margin-top: 12px;
+    }
+}

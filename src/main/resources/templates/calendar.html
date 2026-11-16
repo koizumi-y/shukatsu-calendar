@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="_csrf" th:content="${_csrf.token}">
+    <meta name="_csrf_header" th:content="${_csrf.headerName}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>就活用カレンダー</title>
+
+    <link rel="stylesheet" th:href="@{/css/calendar.css}">
+
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.19/index.global.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.19/locales-all.global.min.js"></script>
+
+    <script th:src="@{/js/calendar.js}" defer></script>
+</head>
+
+<body>
+
+<main class="container">
+
+    <h1>就活用カレンダー</h1>
+
+    <div id="calendar"></div>
+
+    <section class="upcoming-section">
+        <h2>今後の予定</h2>
+
+        <div id="upcoming-schedules"></div>
+
+        <div class="schedule-buttons">
+            <button type="button" id="edit-selected-button">
+                予定の編集
+            </button>
+
+            <button type="button" id="delete-selected-button">
+                予定の削除
+            </button>
+        </div>
+    </section>
+
+    <button type="button" id="add-button">
+        ＋ 予定を追加
+    </button>
+
+</main>
+
+<dialog id="schedule-dialog">
+
+    <h2 id="dialog-title">予定を追加</h2>
+
+    <form id="schedule-form">
+
+        <label for="company-name">企業名</label>
+        <input
+                type="text"
+                id="company-name"
+                maxlength="100"
+                required
+        >
+
+        <label for="event-type">予定の種類</label>
+        <select id="event-type" required>
+            <option value="">選択してください</option>
+            <option value="説明会">説明会</option>
+            <option value="インターン">インターン</option>
+            <option value="面接">面接</option>
+            <option value="ES提出">ES提出</option>
+            <option value="適性検査">適性検査</option>
+            <option value="その他">その他</option>
+        </select>
+
+        <label for="schedule-date">日付</label>
+        <input
+                type="date"
+                id="schedule-date"
+                required
+        >
+
+        <label for="schedule-time">時間</label>
+        <input
+                type="time"
+                id="schedule-time"
+        >
+
+        <label for="schedule-memo">メモ</label>
+        <textarea
+                id="schedule-memo"
+                maxlength="255"
+        ></textarea>
+
+        <div class="dialog-buttons">
+            <button type="submit">保存</button>
+
+            <button type="button" id="delete-button" hidden>
+                削除
+            </button>
+
+            <button type="button" id="cancel-button">
+                キャンセル
+            </button>
+        </div>
+
+    </form>
+
+</dialog>
+
+</body>
+</html>
